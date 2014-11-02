@@ -23,8 +23,8 @@ import static java.lang.Math.sqrt;
  * and will run a full simulation comparable with TWODEE2013
  * 
  * Where Zalesak 1979 is mentioned in comments, this refers to:
- *  Zalesak, S. (1979). Fully multidimensional flux-corrected transport
- *  algortihms for fluids. Journal of Computational Physics, 31, 335-362.
+ *  Zalesak, S. (1979). "Fully multidimensional flux-corrected transport
+ *  algortihms for fluids". Journal of Computational Physics, 31, 335-362.
  * 
  * @author Stephen Denekamp and Dr. Robin Hankin
  * @version 1.0: Created based on TWODEE2013 code by Dr. Robin Hankin
