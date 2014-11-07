@@ -140,7 +140,7 @@ public class Simulation
         for (int i = 0; i < simRows; i++) {
             for (int j = 0; j < simCols; j++) 
             { 
-                if(xSlope > 999)
+                if(xSlope < 999)
                 {
                     //continue and use genSettings.in value
                 } 
