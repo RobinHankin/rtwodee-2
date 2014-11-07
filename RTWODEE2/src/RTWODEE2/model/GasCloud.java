@@ -39,7 +39,6 @@ public class GasCloud extends Cloud
      * @param vVelocity The matrix of the Clouds vertical velocity
      * @param height The matrix of the Clouds HEIGHT
      * @param density  The matrix of the Clouds DENSITY
-     * @param gridSize The size/scale of each point of the cloud
      * @param rhoa The ambient air DENSITY
      */
     public GasCloud(double[][] hVelocity, double[][] vVelocity,
