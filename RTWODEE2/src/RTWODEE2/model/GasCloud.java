@@ -53,7 +53,7 @@ public class GasCloud extends Cloud
         int rows = hVelocity[0].length;
         MAX_DENSITY_AT_GROUND = new double[rows][cols];
         MAX_DENSITY_AT_ALTITUDE = new double[rows][cols];
-        setDensityDefaults(rhoa);        
+//        setDensityDefaults(rhoa);        
     }
     
     /**
@@ -72,7 +72,7 @@ public class GasCloud extends Cloud
         
         MAX_DENSITY_AT_GROUND = new double[rows][cols];    //maximum DENSITY over time
         MAX_DENSITY_AT_ALTITUDE = new double[rows][cols];  //maximum DENSITY over time
-        setDensityDefaults(rhoa);
+ //       setDensityDefaults(rhoa);
     }
     
     /**
