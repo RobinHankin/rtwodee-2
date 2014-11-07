@@ -5,7 +5,7 @@
 simulationType = 1
 
 ! Name of folder containing scenario input files
-scenarioName = Scenario1
+scenarioName = test_scenario
 
 ! Name of the input file to be used by the advection 
 ! scheme if running an advection only simulation
@@ -23,8 +23,8 @@ chlorineGasDensity = 2.96
 beta = 01.00
 courant = 0.25
 rhoa = 1.25
-horizontalWindVelocity = -0.5
-verticalWindVelocity = 0.0
+wind_u = 0.0
+wind_v = 0.0
 edgeEntrainmentCoeff = 0000
 shapeParam = 00.50
 diffusionCoeff = 00.20
@@ -33,14 +33,14 @@ roughnessLength = 0.001
 zeta = 0000
 alpha2 = 00.70
 alpha3 = 01.30
-alpha4 = 03.50
+alpha4 = 00.00
 alpha6 = 00.40
 alpha7 = 00.45
 wStar = 0000
 windReferenceHeight = 10.0
 uStar = 00.1
 densityExchangeCoeff = 0000
-xSlope = 9999
+xSlope = 4.0
 ySlope = 0000
 toxicExponent = 02.00
 

@@ -143,7 +143,7 @@ public class Simulation
                 if(xSlope > 999)
                 {
                     //continue and read from groundHeight.in
-                } 
+                }
                 else
                 {
                     double value = (0.0+i*xSlope +j*ySlope)*GRID_SIZE*(0.01);
@@ -1623,8 +1623,8 @@ public class Simulation
                 as it is, y runs from up to down (or North to South) so a 
                 reflection is required to translate the two.
                 */
-                double windu = settingsFile.getDoubleSetting("horizontalWindVelocity");
-                double windv = settingsFile.getDoubleSetting("verticalWindVelocity");
+                double windu = settingsFile.getDoubleSetting("wind_u");
+                double windv = settingsFile.getDoubleSetting("wind_v");
                 
                 int ie;
                 int je;
