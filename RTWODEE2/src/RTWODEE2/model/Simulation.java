@@ -140,13 +140,13 @@ public class Simulation
         for (int i = 0; i < simRows; i++) {
             for (int j = 0; j < simCols; j++) 
             { 
-                if(xSlope < 999)
+                if(xSlope > 999)
                 {
-                    //continue and use genSettings.in value
+                    //continue and read from groundHeight.in
                 } 
                 else
                 {
-                    double value = (0.0+i*xSlope*ySlope)*GRID_SIZE*(0.01);
+                    double value = (0.0+i*xSlope +j*ySlope)*GRID_SIZE*(0.01);
                     ground.setHeight(i, j, value);
                 }
             }//end j loop
