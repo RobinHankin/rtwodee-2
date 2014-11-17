@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Dr. Robin Hankin
+ * Copyright (C) 2014 Robin Hankin
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -47,6 +47,7 @@ public class Simulation
     protected double timeStep; //(dt in TWODEE2013)
     protected final double GRID_SIZE; //the size/scale each point on the simluation represents
     protected final double RHOA; //ambient air density
+    protected final double GRAVITY;  // acceleration due to gravity
     protected final double ROUGHNESS_LENGTH; //(zRough in TWODEE2013)
     protected final double SHAPE_PARAM; //shape parameter as in Ellison and Turner.
     protected final double U_STAR;
@@ -78,6 +79,7 @@ public class Simulation
         GRID_SIZE = this.settingsFile.getDoubleSetting("gridSize");
         maxSimulationTime = this.settingsFile.getDoubleSetting("maxSimulationTime");
         RHOA = this.settingsFile.getDoubleSetting("rhoa");
+        GRAVITY = this.settingsFile.getDoubleSetting("gravity");
         ROUGHNESS_LENGTH = this.settingsFile.getDoubleSetting("roughnessLength");
         SHAPE_PARAM = this.settingsFile.getDoubleSetting("shapeParam");
         U_STAR = this.settingsFile.getDoubleSetting("uStar");
@@ -380,7 +382,7 @@ public class Simulation
                 cloudNew.setDensity(i, j, value);
                 
                 //Don't let the density exceed the density of the source.
-                if(cloudNew.getHeight(i, j) * 9.81 
+                if(cloudNew.getHeight(i, j) * GRAVITY 
                         * (cloudNew.getDensity(i, j) - RHOA) 
                     / (cloudNew.getU(i, j) * cloudNew.getU(i, j) 
                         + U_STAR * U_STAR + 0.01) < 0.001)
@@ -1106,7 +1108,7 @@ public class Simulation
                 double u1 = (cloud.getU(i, j) * cloud.getU(i, j)
                         + cloud.getV(i, j) * cloud.getV(i, j));
 
-                double c1 = (9.81 * (cloud.getDensity(i, j) - RHOA)
+                double c1 = (GRAVITY * (cloud.getDensity(i, j) - RHOA)
                         / cloud.getDensity(i, j) * cloud.getHeight(i, j));
 
                 if (u1 > umax) {
@@ -1535,8 +1537,8 @@ public class Simulation
                     }//end of cases
                 }//end of case loop
                 
-                uMomentum = uMomentum*9.816*SHAPE_PARAM;
-                vMomentum = vMomentum*9.816*SHAPE_PARAM;
+                uMomentum = uMomentum*GRAVITY*SHAPE_PARAM;
+                vMomentum = vMomentum*GRAVITY*SHAPE_PARAM;
                 
                 if(hNew[i][j] > ROUGHNESS_LENGTH)
                 {
@@ -1770,7 +1772,7 @@ public class Simulation
                     double alpha7 = settingsFile.getDoubleSetting("alpha7");
                     
                     double gDashStar = 
-                            9.81 * Math.max((rhoNew[i][j]-RHOA)
+                            GRAVITY * Math.max((rhoNew[i][j]-RHOA)
                                     /RHOA, 1.0);
                     
                     //vee is the vertical entrainment velocity
