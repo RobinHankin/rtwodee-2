@@ -592,16 +592,16 @@ public class Simulation
                     double densityExchangeCoeff = 
                             settingsFile.getDoubleSetting("densityExchangeCoeff");
                     
-                    ///1 over root 2 (0.7071). Should be changed to 1 over root 2
+                 
                     
-                    double speedi=0.7071*sqrt(u[i][j]*u[i][j]+v[i][j]*v[i][j]
+                    double speedi=1/sqrt(2)*sqrt(u[i][j]*u[i][j]+v[i][j]*v[i][j]
                             +u[i+1][j]*u[i+1][j]+v[i+1][j]*v[i+1][j]);
             
-                    double speedj=0.7071*sqrt(u[i][j]*u[i][j]+v[i][j]*v[i][j]
+                    double speedj=1/sqrt(2)*sqrt(u[i][j]*u[i][j]+v[i][j]*v[i][j]
                             +u[i][j+1]*u[i][j+1]+v[i][j+1]*v[i][j+1]);
                     
-                    double h_avei=0.7071*sqrt(h[i][j]*h[i][j]+h[i+1][j]*h[i+1][j]);
-                    double h_avej=0.7071*sqrt(h[i][j]*h[i][j]+h[i][j+1]*h[i][j+1]);
+                    double h_avei=1/sqrt(2)*sqrt(h[i][j]*h[i][j]+h[i+1][j]*h[i+1][j]);
+                    double h_avej=1/sqrt(2)*sqrt(h[i][j]*h[i][j]+h[i][j+1]*h[i][j+1]);
                     
                     fhu[i][j]=fhu[i][j]+densityExchangeCoeff*speedi
                             *h_avei*(rho[i][j]-rho[i+1][j]);
